@@ -1,0 +1,10 @@
+FROM node:alpine
+WORKDIR "/app"
+COPY ./package.json ./
+RUN npm install
+#USER node
+#RUN mkdir /app/node_modules/.cache && chmod -R 777 /app/node_modules/.cache  && chown -R node:node /app/node_modules
+#RUN mkdir /app/node_modules/.cache && chmod -R 777 /app/node_modules/.cache  && chown -R node:node /app/node_modules/.cache && chmod -R 777 /app/node_modules/.cache/
+#USER node
+COPY . .
+CMD ["npm","run","start"]
